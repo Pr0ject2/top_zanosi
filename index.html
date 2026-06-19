@@ -866,7 +866,7 @@
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">&times;</button>
-            <h3 class="modal-title" id="modalTitle">Условия бонуса</h3>
+            <h3 class="modal-title" id="modalTitle">Подробнее о проекте</h3>
             <p class="modal-text" id="modalText">Текст условий...</p>
         </div>
     </div>
@@ -909,7 +909,7 @@
                 bonusText: "225% на депозит",
                 bonusExtra: "+ 900 FS",
                 link: "https://apx3-smart.com/ad3hsmd8fa",
-                terms: "Apex — это онлайн-казино с безлимитным выводом средств без верификации, 10-ступенчатой программой лояльности с VIP-событиями и турнирами, поддержкой криптовалютных депозитов и рублевых ставок. Новым пользователям предлагают приветственный бонус за первые три пополнения, а регулярным игрокам доступны кешбэк, рейкбек, колесо Фортуны, лотереи, фриспины и лутбоксы."
+                terms: "Apex — это онлайн-казино с безлимитным выводом средств без верификации, 10-ступенчатой программой лояльности с VIP-событиями и турнирами, поддержкой криптовалютных депозитов и рублевых ставок. \n \n Новым пользователям предлагают приветственный бонус за первые три пополнения, а регулярным игрокам доступны кешбэк, рейкбек, колесо Фортуны, лотереи, фриспины и лутбоксы."
             },
             {
                 id: "02",
@@ -974,7 +974,7 @@
 
         function openTerms(index) {
             const project = projectsData[index];
-            modalTitle.innerText = `Условия бонуса в ${project.name}`;
+            modalTitle.innerText = `Подробнее о проекте ${project.name}`;
             modalText.innerText = project.terms;
             modalOverlay.classList.add('active');
         }
