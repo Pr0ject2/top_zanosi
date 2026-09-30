@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <script>
+        (() => {
+            const url = new URL(window.location.href);
+            const token = url.searchParams.get("lh_visit");
+            if (!token || !/^[A-Za-z0-9_-]{43}$/.test(token)) return;
+            url.searchParams.delete("lh_visit");
+            window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
+            window.__linkhubViewPing = new Image();
+            window.__linkhubViewPing.src = "https://viazento.link/track/site/" + encodeURIComponent(token);
+        })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59GX4YGKMR"></script>
     <script>
