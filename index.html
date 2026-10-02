@@ -6,6 +6,7 @@
             const url = new URL(window.location.href);
             const token = url.searchParams.get("lh_visit");
             if (!token || !/^[A-Za-z0-9_-]{43}$/.test(token)) return;
+            try { window.sessionStorage.setItem("lh_visit", token); } catch (_) {} 
             url.searchParams.delete("lh_visit");
             window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
             window.__linkhubViewPing = new Image();
@@ -1306,7 +1307,7 @@
             ` : "";
 
             featuredProjectRoot.innerHTML = `
-                <article class="featured-card">
+                <article class="featured-card" data-project-id="${escapeHtml(project.id)}">
                     <div class="featured-main">
                         <div class="featured-top">
                             <span class="badge">Самый популярный</span>
@@ -1369,7 +1370,7 @@
                 ` : "";
 
                 return `
-                    <article class="project-card">
+                    <article class="project-card" data-project-id="${escapeHtml(project.id)}">
                         <div class="project-top">
                             <div class="project-logo">
                                 <img class="${escapeHtml(project.logoClass || "")}" src="${escapeHtml(project.logoUrl)}" alt="${escapeHtml(project.name)}">
@@ -1445,6 +1446,36 @@
             termsModal.setAttribute("aria-hidden", "true");
             document.body.classList.remove("modal-open");
         }
+
+        function trackSiteButton(action, project) {
+            const params = new URLSearchParams({
+                action,
+                project: project ? project.id : "site",
+                name: project ? project.name : "top_zanosi"
+            });
+            try {
+                const token = window.sessionStorage.getItem("lh_visit");
+                if (token && /^[A-Za-z0-9_-]{43}$/.test(token)) params.set("token", token);
+            } catch (_) {}
+            const ping = new Image();
+            window.__linkhubButtonPings = window.__linkhubButtonPings || [];
+            window.__linkhubButtonPings.push(ping);
+            ping.onload = ping.onerror = () => {
+                window.__linkhubButtonPings = window.__linkhubButtonPings.filter((item) => item !== ping);
+            };
+            ping.src = "https://viazento.link/track/button?" + params.toString();
+        }
+
+        document.addEventListener("click", (event) => {
+            const target = event.target instanceof Element ? event.target : event.target.parentElement;
+            if (!target) return;
+            const card = target.closest("[data-project-id]");
+            const project = card && projectsData.find((item) => item.id === card.dataset.projectId);
+            if (target.closest("[data-telegram-link]")) trackSiteButton("telegram", null);
+            else if (project && target.closest(".btn-primary, .btn-secondary")) trackSiteButton("visit", project);
+            else if (project && target.closest("[data-copy-text]")) trackSiteButton("copy_promo", project);
+            else if (project && target.closest("[data-open-terms]")) trackSiteButton("terms", project);
+        }, { capture: true });
 
         document.addEventListener("click", (event) => {
             const trigger = event.target.closest("[data-open-terms]");
