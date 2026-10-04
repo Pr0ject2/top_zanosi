@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; object-src 'none'; form-action 'none'; frame-src 'none'; script-src 'self' https://www.googletagmanager.com 'sha256-OaomV9YSQzFX89Vx2yIom774XotblcTaMj0aBav/3+g=' 'sha256-OyellfYYS21AHjj4QMck1U5ZdDFELyMJUvI2BuD6Z/4=' 'sha256-RwXRhFBGJ/TwyZL2bYAy07SYfZmMD5vg6VSlL9CJEPw='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://viazento.link https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <script>
         (() => {
             const url = new URL(window.location.href);
-            const token = url.searchParams.get("lh_visit");
-            if (!token || !/^[A-Za-z0-9_-]{43}$/.test(token)) return;
-            try { window.sessionStorage.setItem("lh_visit", token); } catch (_) {} 
-            url.searchParams.delete("lh_visit");
-            window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
-            window.__linkhubViewPing = new Image();
-            window.__linkhubViewPing.src = "https://viazento.link/track/site/" + encodeURIComponent(token);
+            const rawToken = url.searchParams.get("lh_visit");
+            const token = rawToken && /^[A-Za-z0-9_-]{43}$/.test(rawToken) ? rawToken : null;
+            if (rawToken !== null) {
+                url.searchParams.delete("lh_visit");
+                window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash);
+            }
+            const activePings = new Set();
+            function sendPing(path) {
+                const ping = new Image();
+                activePings.add(ping);
+                ping.onload = ping.onerror = () => activePings.delete(ping);
+                ping.src = "https://viazento.link" + path;
+            }
+            if (token) sendPing("/track/site/" + encodeURIComponent(token));
+
+            document.addEventListener("click", (event) => {
+                const target = event.target instanceof Element ? event.target : event.target.parentElement;
+                if (!target) return;
+                const card = target.closest("[data-project-id]");
+                let action, project = "site", name = "top_zanosi";
+                if (target.closest("[data-telegram-link]")) action = "telegram";
+                else if (card) {
+                    project = card.dataset.projectId;
+                    name = card.dataset.projectName;
+                    if (target.closest(".btn-primary, .btn-secondary")) action = "visit";
+                    else if (target.closest("[data-copy-text]")) action = "copy_promo";
+                    else if (target.closest("[data-open-terms]")) action = "terms";
+                }
+                if (!action || !project || !name) return;
+                const params = new URLSearchParams({action, project, name});
+                if (token) params.set("token", token);
+                sendPing("/track/button?" + params.toString());
+            }, {capture: true});
         })();
     </script>
     <!-- Google tag (gtag.js) -->
@@ -1307,7 +1335,7 @@
             ` : "";
 
             featuredProjectRoot.innerHTML = `
-                <article class="featured-card" data-project-id="${escapeHtml(project.id)}">
+                <article class="featured-card" data-project-id="${escapeHtml(project.id)}" data-project-name="${escapeHtml(project.name)}">
                     <div class="featured-main">
                         <div class="featured-top">
                             <span class="badge">Самый популярный</span>
@@ -1370,7 +1398,7 @@
                 ` : "";
 
                 return `
-                    <article class="project-card" data-project-id="${escapeHtml(project.id)}">
+                    <article class="project-card" data-project-id="${escapeHtml(project.id)}" data-project-name="${escapeHtml(project.name)}">
                         <div class="project-top">
                             <div class="project-logo">
                                 <img class="${escapeHtml(project.logoClass || "")}" src="${escapeHtml(project.logoUrl)}" alt="${escapeHtml(project.name)}">
@@ -1446,36 +1474,6 @@
             termsModal.setAttribute("aria-hidden", "true");
             document.body.classList.remove("modal-open");
         }
-
-        function trackSiteButton(action, project) {
-            const params = new URLSearchParams({
-                action,
-                project: project ? project.id : "site",
-                name: project ? project.name : "top_zanosi"
-            });
-            try {
-                const token = window.sessionStorage.getItem("lh_visit");
-                if (token && /^[A-Za-z0-9_-]{43}$/.test(token)) params.set("token", token);
-            } catch (_) {}
-            const ping = new Image();
-            window.__linkhubButtonPings = window.__linkhubButtonPings || [];
-            window.__linkhubButtonPings.push(ping);
-            ping.onload = ping.onerror = () => {
-                window.__linkhubButtonPings = window.__linkhubButtonPings.filter((item) => item !== ping);
-            };
-            ping.src = "https://viazento.link/track/button?" + params.toString();
-        }
-
-        document.addEventListener("click", (event) => {
-            const target = event.target instanceof Element ? event.target : event.target.parentElement;
-            if (!target) return;
-            const card = target.closest("[data-project-id]");
-            const project = card && projectsData.find((item) => item.id === card.dataset.projectId);
-            if (target.closest("[data-telegram-link]")) trackSiteButton("telegram", null);
-            else if (project && target.closest(".btn-primary, .btn-secondary")) trackSiteButton("visit", project);
-            else if (project && target.closest("[data-copy-text]")) trackSiteButton("copy_promo", project);
-            else if (project && target.closest("[data-open-terms]")) trackSiteButton("terms", project);
-        }, { capture: true });
 
         document.addEventListener("click", (event) => {
             const trigger = event.target.closest("[data-open-terms]");
