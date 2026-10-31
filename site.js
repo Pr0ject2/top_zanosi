@@ -117,6 +117,25 @@
                 ]
             },
             {
+                id: "12",
+                name: "Stake",
+                logoUrl: "stake-logo.svg",
+                logoClass: "logo-image--boost",
+                bonusText: "Rakeback 3,5% от house edge",
+                bonusExtra: "",
+                promoCode: "topzanosi",
+                link: "https://stake.com/?c=topzanosi",
+                terms: [
+                    { label: "Мин. депозит", value: "Крипто: от $0,01; фиат зависит от страны" },
+                    { label: "Мин. сумма вывода", value: "USDT: 2,5; BTC: 0,00002504 (другие валюты по методу)" },
+                    { label: "Валюта счета", value: "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL; USD, EUR и другие доступные валюты" },
+                    { label: "Лимит на вывод средств", value: "Криптовалюта: без верхнего лимита; фиат по методу" },
+                    { label: "Способы пополнения", value: "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL; Visa, Mastercard и местные методы по стране" },
+                    { label: "Способы вывода", value: "Криптовалюты, Visa, Mastercard, банковский перевод (в зависимости от страны)" },
+                    { label: "Скорость выплат", value: "Крипто: по подтверждениям сети; банк и карта: до 3 рабочих дней" }
+                ]
+            },
+            {
                 id: "06",
                 name: "Eva",
                 logoUrl: "eva-logo.png",
@@ -208,25 +227,6 @@
                     { label: "Способы пополнения", value: "Мир, СБП, Visa, Mastercard, Tether, Bitcoin, Ethereum, ЮMoney, Dogecoin, Ripple, Litecoin, Tron, Т-Банк, Криптовалюта, Банк ВТБ, Сбербанк, Альфа-Банк, Bybit Pay" },
                     { label: "Способы вывода", value: "Мир, СБП, Visa, Mastercard, Tether, Bitcoin, Ethereum, Dogecoin, Ripple, Litecoin, Tron, Озон Банк, Газпромбанк, Т-Банк, Криптовалюта, Банк ВТБ, Сбербанк, Альфа-Банк, Яндекс Банк" },
                     { label: "Скорость выплат", value: "0-48 часов" }
-                ]
-            },
-            {
-                id: "12",
-                name: "Stake",
-                logoUrl: "stake-logo.svg",
-                logoClass: "logo-image--boost",
-                bonusText: "Приветственный бонус",
-                bonusExtra: "",
-                promoCode: "topzanosi",
-                link: "https://stake.com/?c=topzanosi",
-                terms: [
-                    { label: "Мин. депозит", value: "Зависит от валюты и способа оплаты" },
-                    { label: "Мин. сумма вывода", value: "Указывается при выводе" },
-                    { label: "Валюта счета", value: "Криптовалюты и доступные фиатные валюты" },
-                    { label: "Лимит на вывод средств", value: "Зависит от валюты, метода и статуса аккаунта" },
-                    { label: "Способы пополнения", value: "Криптовалюта и доступные фиатные методы" },
-                    { label: "Способы вывода", value: "Криптовалюта и доступные фиатные методы" },
-                    { label: "Скорость выплат", value: "Зависит от валюты, сети и метода" }
                 ]
             }
         ];
