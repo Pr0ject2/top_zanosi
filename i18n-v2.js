@@ -40,7 +40,8 @@
         ["+ 850 FS", "Up to 850 FS"],
         ["150% на депозит + 350 FS", "Up to 150% + 350 FS"],
         ["425% на депозит + 230 FS", "Up to 425% + 230 FS"],
-        ["Рейкбек 3,5%", "3.5% rakeback"]
+        ["Рейкбек 3,5%", "3.5% rakeback"],
+        ["Без минимума (крипто)", "No minimum (crypto)"]
     ]);
 
     const phraseReplacements = [
@@ -163,7 +164,7 @@
             "Скорость выплат": "0–24 hours for crypto/e-wallets; cards may take 4–5 business days"
         },
         "12": {
-            "Мин. депозит": "Crypto: no fixed minimum; fiat depends on payment method",
+            "Мин. депозит": "Crypto: no minimum; fiat depends on method",
             "Мин. сумма вывода": "2.5 USDT / 0.00002504 BTC (other currencies differ)",
             "Валюта счета": "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL, USD, EUR and others",
             "Лимит на вывод средств": "Crypto: no upper limit; fiat varies by method",
