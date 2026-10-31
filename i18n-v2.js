@@ -157,16 +157,7 @@
             "Мин. депозит": "$5",
             "Мин. сумма вывода": "$5",
             "Валюта счета": "USD, USDT, EUR, AUD, CAD, JPY, NOK, SEK, TRY, INR, KRW, BTC, ETH, LTC, USDC, TON and others",
-            "Лимит на вывод средств": "$5,000 per day / 
-        "10": {
-            "Мин. депозит": "$5",
-            "Мин. сумма вывода": "$5",
-            "Валюта счета": "USD, USDT, EUR, AUD, CAD, JPY, NOK, SEK, TRY, INR, KRW, BTC, ETH, LTC, USDC, TON and others",
             "Лимит на вывод средств": "$5,000 per day / $100,000 per month",
-            "Способы пополнения": "Cards, crypto wallets, e-wallets and bank transfer",
-            "Способы вывода": "Cards, crypto wallets, e-wallets and bank transfer",
-            "Скорость выплат": "0–24 hours for crypto/e-wallets; cards may take 4–5 business days"
-        }00,000 per month",
             "Способы пополнения": "Cards, crypto wallets, e-wallets and bank transfer",
             "Способы вывода": "Cards, crypto wallets, e-wallets and bank transfer",
             "Скорость выплат": "0–24 hours for crypto/e-wallets; cards may take 4–5 business days"
