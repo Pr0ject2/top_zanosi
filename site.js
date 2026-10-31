@@ -121,18 +121,18 @@
                 name: "Stake",
                 logoUrl: "stake-logo.svg",
                 logoClass: "logo-image--boost",
-                bonusText: "Rakeback 3,5% от house edge",
+                bonusText: "Рейкбек 3,5%",
                 bonusExtra: "",
                 promoCode: "topzanosi",
                 link: "https://stake.com/?c=topzanosi",
                 terms: [
-                    { label: "Мин. депозит", value: "Крипто: от $0,01; фиат зависит от страны" },
-                    { label: "Мин. сумма вывода", value: "USDT: 2,5; BTC: 0,00002504 (другие валюты по методу)" },
-                    { label: "Валюта счета", value: "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL; USD, EUR и другие доступные валюты" },
-                    { label: "Лимит на вывод средств", value: "Криптовалюта: без верхнего лимита; фиат по методу" },
-                    { label: "Способы пополнения", value: "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL; Visa, Mastercard и местные методы по стране" },
-                    { label: "Способы вывода", value: "Криптовалюты, Visa, Mastercard, банковский перевод (в зависимости от страны)" },
-                    { label: "Скорость выплат", value: "Крипто: по подтверждениям сети; банк и карта: до 3 рабочих дней" }
+                    { label: "Мин. депозит", value: "Крипто: без фиксированного минимума; фиат зависит от метода" },
+                    { label: "Мин. сумма вывода", value: "2,5 USDT / 0,00002504 BTC (для других валют отличается)" },
+                    { label: "Валюта счета", value: "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL, USD, EUR и другие" },
+                    { label: "Лимит на вывод средств", value: "Крипто: без верхнего лимита; фиат по методу" },
+                    { label: "Способы пополнения", value: "Криптовалюты, Visa, Mastercard и местные методы (по региону)" },
+                    { label: "Способы вывода", value: "Криптовалюты, карты, банковский перевод (по региону)" },
+                    { label: "Скорость выплат", value: "Зависит от сети и платёжного метода" }
                 ]
             },
             {
