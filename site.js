@@ -119,7 +119,7 @@
             {
                 id: "12",
                 name: "Stake",
-                logoUrl: "stake-logo.svg",
+                logoUrl: "stake-logo.svg?v=20261101-2",
                 logoClass: "logo-image--boost",
                 bonusText: "Рейкбек 3,5%",
                 bonusExtra: "",
