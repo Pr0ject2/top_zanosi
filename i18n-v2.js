@@ -40,7 +40,7 @@
         ["+ 850 FS", "Up to 850 FS"],
         ["150% на депозит + 350 FS", "Up to 150% + 350 FS"],
         ["425% на депозит + 230 FS", "Up to 425% + 230 FS"],
-        ["Rakeback 3,5% от house edge", "3.5% rakeback on house edge"]
+        ["Рейкбек 3,5%", "3.5% rakeback"]
     ]);
 
     const phraseReplacements = [
@@ -163,13 +163,13 @@
             "Скорость выплат": "0–24 hours for crypto/e-wallets; cards may take 4–5 business days"
         },
         "12": {
-            "Мин. депозит": "Crypto: from $0.01; fiat minimum depends on region",
-            "Мин. сумма вывода": "USDT: 2.5; BTC: 0.00002504 (other currencies vary)",
-            "Валюта счета": "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL; USD, EUR and other supported currencies",
-            "Лимит на вывод средств": "Crypto: no maximum; fiat limits vary by method",
-            "Способы пополнения": "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL; Visa, Mastercard and regional payment options",
-            "Способы вывода": "Crypto, Visa, Mastercard and bank transfer (regional availability)",
-            "Скорость выплат": "Crypto: subject to network confirmations; bank/card: up to 3 business days"
+            "Мин. депозит": "Crypto: no fixed minimum; fiat depends on payment method",
+            "Мин. сумма вывода": "2.5 USDT / 0.00002504 BTC (other currencies differ)",
+            "Валюта счета": "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL, USD, EUR and others",
+            "Лимит на вывод средств": "Crypto: no upper limit; fiat varies by method",
+            "Способы пополнения": "Crypto, Visa, Mastercard and local methods (by region)",
+            "Способы вывода": "Crypto, cards and bank transfer (by region)",
+            "Скорость выплат": "Depends on network and payment method"
         }
     };
 
