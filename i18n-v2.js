@@ -39,7 +39,8 @@
         ["400% на депозит + 550 FS", "Up to 400% + 550 FS"],
         ["+ 850 FS", "Up to 850 FS"],
         ["150% на депозит + 350 FS", "Up to 150% + 350 FS"],
-        ["425% на депозит + 230 FS", "Up to 425% + 230 FS"]
+        ["425% на депозит + 230 FS", "Up to 425% + 230 FS"],
+        ["Приветственный бонус", "Welcome offer"]
     ]);
 
     const phraseReplacements = [
@@ -156,10 +157,28 @@
             "Мин. депозит": "$5",
             "Мин. сумма вывода": "$5",
             "Валюта счета": "USD, USDT, EUR, AUD, CAD, JPY, NOK, SEK, TRY, INR, KRW, BTC, ETH, LTC, USDC, TON and others",
+            "Лимит на вывод средств": "$5,000 per day / 
+        "10": {
+            "Мин. депозит": "$5",
+            "Мин. сумма вывода": "$5",
+            "Валюта счета": "USD, USDT, EUR, AUD, CAD, JPY, NOK, SEK, TRY, INR, KRW, BTC, ETH, LTC, USDC, TON and others",
             "Лимит на вывод средств": "$5,000 per day / $100,000 per month",
             "Способы пополнения": "Cards, crypto wallets, e-wallets and bank transfer",
             "Способы вывода": "Cards, crypto wallets, e-wallets and bank transfer",
             "Скорость выплат": "0–24 hours for crypto/e-wallets; cards may take 4–5 business days"
+        }00,000 per month",
+            "Способы пополнения": "Cards, crypto wallets, e-wallets and bank transfer",
+            "Способы вывода": "Cards, crypto wallets, e-wallets and bank transfer",
+            "Скорость выплат": "0–24 hours for crypto/e-wallets; cards may take 4–5 business days"
+        },
+        "12": {
+            "Мин. депозит": "Varies by currency and payment method",
+            "Мин. сумма вывода": "Shown in the withdrawal interface",
+            "Валюта счета": "Cryptocurrencies and supported fiat currencies",
+            "Лимит на вывод средств": "Varies by currency, method and account status",
+            "Способы пополнения": "Crypto and available fiat payment methods",
+            "Способы вывода": "Crypto and available fiat withdrawal methods",
+            "Скорость выплат": "Varies by currency, network and method"
         }
     };
 
