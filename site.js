@@ -123,10 +123,11 @@
                 logoClass: "logo-image--boost",
                 bonusText: "Рейкбек 3,5%",
                 bonusExtra: "",
+                cardMinDeposit: "Без минимума (крипто)",
                 promoCode: "topzanosi",
                 link: "https://stake.com/?c=topzanosi",
                 terms: [
-                    { label: "Мин. депозит", value: "Крипто: без фиксированного минимума; фиат зависит от метода" },
+                    { label: "Мин. депозит", value: "Крипто: без минимума; фиат зависит от метода" },
                     { label: "Мин. сумма вывода", value: "2,5 USDT / 0,00002504 BTC (для других валют отличается)" },
                     { label: "Валюта счета", value: "BTC, ETH, USDT, USDC, LTC, DOGE, XRP, TRX, SOL, USD, EUR и другие" },
                     { label: "Лимит на вывод средств", value: "Крипто: без верхнего лимита; фиат по методу" },
@@ -292,7 +293,7 @@
 
         function renderFeaturedProject(project) {
             const bonus = formatBonus(project) || "Не указан";
-            const minDeposit = getTermValue(project, "Мин. депозит") || "—";
+            const minDeposit = project.cardMinDeposit || getTermValue(project, "Мин. депозит") || "—";
             const payoutSpeed = getTermValue(project, "Скорость выплат") || "—";
             const minWithdraw = getTermValue(project, "Мин. сумма вывода") || "—";
             const withdrawalLimit = getTermValue(project, "Лимит на вывод средств") || "—";
@@ -360,7 +361,7 @@
         function renderSecondaryProjects(projects) {
             projectsGridRoot.innerHTML = projects.map((project) => {
                 const bonus = formatBonus(project) || "Не указан";
-                const minDeposit = getTermValue(project, "Мин. депозит") || "—";
+                const minDeposit = project.cardMinDeposit || getTermValue(project, "Мин. депозит") || "—";
                 const promoRow = project.promoCode ? `
                     <div class="project-row project-row--promo">
                         <span>Промокод</span>
