@@ -124,7 +124,7 @@
                 bonusText: "Рейкбек 3,5%",
                 bonusExtra: "",
                 cardMinDeposit: "Без минимума (крипто)",
-                promoCode: "topzanosi",
+                promoCode: "3DDD",
                 link: "https://stake.com/?c=topzanosi",
                 terms: [
                     { label: "Мин. депозит", value: "Крипто: без минимума; фиат зависит от метода" },
